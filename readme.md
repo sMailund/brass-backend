@@ -9,6 +9,8 @@ only meant to be used a single day by a single user,
 so few resources were invested in 
 architecture, robustness and security.
 ### solution
+In order to keep costs down and rapidly iterate without having to deal with setting up servers and stuff, 
+the project was built on the Google Cloud Platform (gcp)
 The following is a simple backend that serves as a thin layer between gcp data and the frontend (WIP) 
 running on gcp app engine.
 
