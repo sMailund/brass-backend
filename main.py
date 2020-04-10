@@ -41,6 +41,17 @@ def list_tasks():
     result = list(query.fetch())
     return jsonify(result), 200
 
+@app.route('/task/', methods=['PATCH'])
+def reset_tasks():
+    query = datastore_client.query(kind='task')
+    query.order = ['task_number']
+    result = list(query.fetch())
+    for task in result:
+        task['solved'] = False
+    datastore_client.put_multi(result)
+    return jsonify(result), 200
+
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8181, debug=True)
