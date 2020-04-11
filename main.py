@@ -1,11 +1,12 @@
-import datetime
 from google.cloud import datastore
-
+from flask_cors import CORS
 from flask import Flask, jsonify, request
+
 
 datastore_client = datastore.Client()
 
 app = Flask(__name__)
+CORS(app)
 
 # TODO: error handling
 def get_task(task_number):
