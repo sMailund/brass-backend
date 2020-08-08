@@ -28,7 +28,7 @@ def patch(task_number):
         task['solved'] = False
         return task, 200
     answer = request.form.get('answer').strip().lower()
-    if (task['solution']) == answer:
+    if (task['solution'].strip().lower()) == answer:
         task['solved'] = True
         datastore_client.put(task)
         return jsonify(task), 200
